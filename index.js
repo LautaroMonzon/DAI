@@ -1,13 +1,15 @@
-import express from "express";
-import { Server } from "http";
+import express from "express"
+import pizzaController from "./src/constrollers/pizzaController.js"
 
-const index = express(); //express: tipo de dato
+const app = express(); //express: tipo de dato
 const puerto = 2548; //dentro de la url, en que parte me quiero conectar
 
-index.use(express.json()); //.json me sirve para indicar el tipo 
+app.use(express.json()); //.json me sirve para indicar el tipo 
+app.use("/pizza",pizzaController);
 
-index.listen(puerto, () => 
+app.listen(puerto, () => 
 {
-    console.log("hola");
+    console.log(`This is a server on the point ${puerto}`); //Despues del $ se usa como en js
 })
+
 
